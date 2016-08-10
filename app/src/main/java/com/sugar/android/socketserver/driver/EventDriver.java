@@ -1,13 +1,11 @@
 package com.sugar.android.socketserver.driver;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.mwee.android.drivenbus.Driver;
 import com.mwee.android.drivenbus.component.DrivenMethod;
+import com.sugar.android.socket.model.Response;
 
 
 /**
@@ -26,13 +24,11 @@ public class EventDriver extends Driver {
     }
 
     @DrivenMethod(uri = TAG + "/execute")
-    public void execute(final Context context) {
+    public Response execute(final Context context) {
         Log.i(TAG, "EventDriver, execute event");
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(context, "execute event", Toast.LENGTH_SHORT).show();
-            }
-        });
+        Response res = new Response();
+        res.code = 200;
+        res.message = "success";
+        return res;
     }
 }
