@@ -6,8 +6,10 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.android.pos.localsocketserver.driverbus.Driver;
-import com.android.pos.localsocketserver.driverbus.component.DrivenMethod;
+import com.mwee.android.drivenbus.Driver;
+import com.mwee.android.drivenbus.component.DrivenMethod;
+import com.sugar.android.socket.model.Response;
+
 
 /**
  * @ClassName: UserDriver
@@ -36,7 +38,11 @@ public class UserDriver extends Driver {
     }
 
     @DrivenMethod(uri = TAG + "/delete")
-    public void delete(String param) {
+    public Response delete(String param) {
         Log.i(TAG, "UserDriver, delete user " + param);
+        Response res = new Response();
+        res.code = 200;
+        res.message = "success";
+        return res;
     }
 }

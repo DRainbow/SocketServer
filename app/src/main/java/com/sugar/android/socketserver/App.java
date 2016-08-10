@@ -23,8 +23,8 @@ public class App extends Application {
 
         try {
             DrivenBusManager.getInstance().init(new String[]{
-                    "com.android.sugar.localsocketserver.driver.UserDriver",
-                    "com.android.sugar.localsocketserver.driver.EventDriver"
+                    "com.sugar.android.socketserver.driver.EventDriver",
+                    "com.sugar.android.socketserver.driver.UserDriver"
             });
             DrivenBusManager.getInstance().broadcast("init", this);
         } catch (DrivenException e) {
