@@ -1,5 +1,7 @@
 package com.sugar.android.socket.model;
 
+import com.sugar.android.socket.constant.Constant;
+
 import java.io.Serializable;
 
 /**
@@ -10,7 +12,9 @@ import java.io.Serializable;
  */
 public class Response implements Serializable {
 
-    public int code;
+    public
+    @Constant.ResponseCode
+    int code;
 
     public String message;
 
