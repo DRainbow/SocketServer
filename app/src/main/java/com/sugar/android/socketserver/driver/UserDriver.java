@@ -1,12 +1,12 @@
 package com.sugar.android.socketserver.driver;
 
-import android.content.Context;
 import android.util.Log;
 
 import com.mwee.android.drivenbus.Driver;
 import com.mwee.android.drivenbus.component.DrivenMethod;
+import com.sugar.android.socket.businessmodel.User;
+import com.sugar.android.socket.constant.Constant;
 import com.sugar.android.socket.model.Response;
-import com.sugar.android.socket.model.User;
 
 
 /**
@@ -25,20 +25,20 @@ public class UserDriver extends Driver {
     }
 
     @DrivenMethod(uri = TAG + "/save")
-    public Response save(final Context context) {
+    public Response save() {
         Log.i(TAG, "UserDriver, save use");
         Response res = new Response();
-        res.code = 200;
+        res.code = Constant.SUCCESS;
         res.message = "success";
         res.data = "use/save success";
         return res;
     }
 
     @DrivenMethod(uri = TAG + "/delete")
-    public Response delete(Context context, User user) {
+    public Response delete(User user) {
         Log.i(TAG, "UserDriver, delete user " + user.getName());
         Response res = new Response();
-        res.code = 200;
+        res.code = Constant.SUCCESS;
         res.message = "success";
         res.data = "use/delete success";
         return res;

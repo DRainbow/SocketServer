@@ -1,10 +1,10 @@
 package com.sugar.android.socketserver.driver;
 
-import android.content.Context;
 import android.util.Log;
 
 import com.mwee.android.drivenbus.Driver;
 import com.mwee.android.drivenbus.component.DrivenMethod;
+import com.sugar.android.socket.constant.Constant;
 import com.sugar.android.socket.model.Response;
 
 
@@ -24,11 +24,11 @@ public class EventDriver extends Driver {
     }
 
     @DrivenMethod(uri = TAG + "/execute")
-    public Response execute(final Context context) {
+    public Response execute() {
         Log.i(TAG, "EventDriver, execute event");
         Response res = new Response();
-        res.code = 200;
-        res.message = "success";
+        res.code = Constant.ERROR;
+        res.message = "error";
         return res;
     }
 }
